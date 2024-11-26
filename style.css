@@ -1,0 +1,150 @@
+/* Base Styles */
+body {
+    font-family: Verdana, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #00005D;
+    color: #000;
+}
+
+#wrapper {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "nav"
+        "content"
+        "footer";
+    grid-template-rows: auto auto 1fr auto;
+    max-width: 1200px;
+    margin: auto;
+    background-color: #b3c7e6;
+    min-height: 100vh;
+}
+
+.header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    background-color: #869dc7;
+    padding: 10px 20px;
+    color: #00005D;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+.header-image {
+    width: 80px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.nav {
+    grid-area: nav;
+    display: flex;
+    justify-content: center;
+    background-color: #869dc7;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.nav a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    background-color: #6b8ab3;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav a:hover {
+    background-color: #4e6f9a;
+}
+
+.content {
+    grid-area: content;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 20px;
+    padding: 20px;
+    background-color: #fff;
+}
+
+#main-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    grid-column: 1 / span 2;
+    justify-self: center;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #869dc7;
+    margin-bottom: 10px;
+}
+
+.footer {
+    grid-area: footer;
+    text-align: center;
+    padding: 10px;
+    background-color: #869dc7;
+    font-size: 80%;
+    color: white;
+}
+
+/* Tablet Styles */
+@media (max-width: 1024px) {
+    .content {
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+    }
+
+    #main-image {
+        grid-column: 1;
+    }
+
+    .nav {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .nav a {
+        flex: 1 1 calc(50% - 10px);
+        text-align: center;
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+    #wrapper {
+        grid-template-areas:
+            "header"
+            "nav"
+            "content"
+            "footer";
+    }
+
+    .nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .nav a {
+        width: 90%;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    #main-image {
+        width: 100%;
+    }
+}
